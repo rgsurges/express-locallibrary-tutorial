@@ -15,7 +15,8 @@ var app = express();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = process.env.MONGODB_URI || 'mongodb+srv://ericrbaker:ericrbaker@cluster0.jdqgf.mongodb.net/local_library?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://ericrbaker:ericrbaker@cluster0.jdqgf.mongodb.net/local_library?retryWrites=true';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
